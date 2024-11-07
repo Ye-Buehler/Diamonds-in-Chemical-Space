@@ -70,6 +70,7 @@ target/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+notebook/
 
 # Dask worker cache
 dask-worker-space/
