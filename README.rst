@@ -6,9 +6,6 @@ gdb_brexazine
 .. image:: https://img.shields.io/pypi/v/gdb_brexazine.svg
         :target: https://pypi.python.org/pypi/gdb_brexazine
 
-.. image:: https://img.shields.io/travis/Ye-Buehler/gdb_brexazine.svg
-        :target: https://travis-ci.com/Ye-Buehler/gdb_brexazine
-
 .. image:: https://readthedocs.org/projects/gdb-brexazine/badge/?version=latest
         :target: https://gdb-brexazine.readthedocs.io/en/latest/?version=latest
         :alt: Documentation Status
