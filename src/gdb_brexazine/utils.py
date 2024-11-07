@@ -241,6 +241,29 @@ class Utils:
             df.loc[i, 'Substructures appear times'] = substructure_appear_list[i]
         return df
     
+    
+    # TODO: Check if all atoms belong to the sub-structures
+    def all_atoms_in_substructure(self, smart, smiles):
+        n = Chem.MolFromSmarts(smart)
+        m = Chem.MolFromSmiles(smiles)
+        # Get substructure matches
+        matches = m.GetSubstructMatches(n)
+          # Check if all atoms in the molecule belong to the substructure
+        if matches:
+            # Find all atom indices involved in the matched substructure
+            matched_atoms = set()
+            for match in matches:
+                matched_atoms.update(match)
+
+            # Check if all atoms in the molecule are part of the matched substructure
+            if len(matched_atoms) == m.GetNumAtoms():
+                return True
+            else:
+                #print("Not all atoms in the molecule belong to the substructure.")
+                return False
+        else:
+            return False
+    
 
     # TODO: Check the number of small rings
     def number_of_small_rings(self, smiles):
@@ -337,5 +360,14 @@ class Utils:
                     atom_ring_count[atom_idx] = 1
         atom_ring_count
         print(atom_ring_count)
+
+
+    # TODO: HAC calculation
+    def hac(self, smiles):
+        mol = Chem.MolFromSmiles(smiles)
+        size = mol.GetNumHeavyAtoms()
+
+        return size
+
         
 
