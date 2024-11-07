@@ -15,7 +15,7 @@ gdb_brexazine
 
 Diamonds in Chemical Space: the Synthesis of Brexazine
 
-Diamonds-in-Chemical-Space directory structure::
+Directory structure::
 
     GDB-Brexazine
     ├── AUTHORS.rst
