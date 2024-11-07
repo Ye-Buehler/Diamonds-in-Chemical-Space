@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gdb_brexazine"
+version = "0.1.0"
+description = "Diamonds in Chemical Space: the Synthesis of Brexazine"
+readme = "README.rst"
+authors = [
+  {name = "Ye Buehler", email = "ye.buehler-feng@unibe.ch"}
+]
+maintainers = [
+  {name = "Ye Buehler", email = "ye.buehler-feng@unibe.ch"}
+]
+classifiers = [
+
+]
+license = {text = "MIT license"}
+dependencies = [
+  "typer"
+]
+
+[project.optional-dependencies]
+dev = [
+    "coverage",  # testing
+    "mypy",  # linting
+    "pytest",  # testing
+    "ruff"  # linting
+]
+
+[project.urls]
+
+bugs = "https://github.com/Ye-Buehler/gdb_brexazine/issues"
+changelog = "https://github.com/Ye-Buehler/gdb_brexazine/blob/master/changelog.md"
+homepage = "https://github.com/Ye-Buehler/gdb_brexazine"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.package-data]
+"*" = ["*.*"]
+
+
+
+
+# Mypy
+# ----
+
+[tool.mypy]
+files = "."
+
+# Use strict defaults
+strict = true
+warn_unreachable = true
+warn_no_return = true
+
+[[tool.mypy.overrides]]
+# Don't require test functions to include types
+module = "tests.*"
+allow_untyped_defs = true
+disable_error_code = "attr-defined"
+
