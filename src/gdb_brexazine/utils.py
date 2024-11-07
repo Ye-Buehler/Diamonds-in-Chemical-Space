@@ -260,3 +260,51 @@ class Utils:
         return number_of_small_ring
     
 
+    # TODO: Count the divalent and trivalent atoms
+    def count_divalent_trivalent_atoms(self, smiles):
+        molecule = Chem.MolFromSmiles(smiles)
+        divalent_count = 0
+        trivalent_count = 0
+        
+        for atom in molecule.GetAtoms():
+            # Count the number of bonds (valence) for each atom
+            valence = len(atom.GetNeighbors())
+            
+            if valence == 2:
+                divalent_count += 1
+            elif valence == 3:
+                trivalent_count += 1
+        
+        return [divalent_count, trivalent_count]
+    
+
+    # TODO: check a molecule contains how many 5/6/7/7+-membered rings
+    def count_5to7_membered_rings(self, smiles):
+        number_5 = 0
+        number_6 = 0
+        number_7 = 0
+        number_large = 0
+
+
+        mol = pybel.readstring("smi", smiles)
+        mol.OBMol.FindRingAtomsAndBonds()
+        ring_data = mol.OBMol.GetSSSR()  # Get the smallest set of smallest rings (SSSR)
+        
+        for ring in pybel.ob.OBMolRingIter(mol.OBMol):
+            # Check the number of 5-membered-ring
+            if ring.Size() == 5:
+                number_5 += 1 
+            
+            elif ring.Size() == 6:
+                number_6 += 1 
+            elif ring.Size() == 7:
+                number_7 += 1 
+
+            elif ring.Size() > 7:
+                number_large += 1
+
+
+        return (number_5, number_6, number_7, number_large)
+        
+    
+
