@@ -306,5 +306,36 @@ class Utils:
 
         return (number_5, number_6, number_7, number_large)
         
-    
+
+    # TODO: display the ring sizes of the rings in a molecules
+    def show_ring_size(self, smiles):
+        mol = pybel.readstring("smi", smiles)
+
+        # Perform ring perception
+        mol.OBMol.AddHydrogens()
+        mol.OBMol.PerceiveBondOrders()
+
+        # Get the number of rings and their sizes
+        ring_list = []
+        for ring in mol.OBMol.GetSSSR():
+            print(ring)
+            ring_list.append(ring)
+
+        # Print the ring sizes
+        print("Ring list:", ring_list)
+
+        atom_ring_count = {}
+        # Iterate over the rings
+        for ring in ring_list:
+            # Iterate over the atoms in the ring
+            for atom_idx in ring._path:
+                print(atom_idx, ring._path)
+                if atom_idx in atom_ring_count:
+                    
+                    atom_ring_count[atom_idx] += 1
+                else:
+                    atom_ring_count[atom_idx] = 1
+        atom_ring_count
+        print(atom_ring_count)
+        
 
