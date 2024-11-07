@@ -15,6 +15,51 @@ gdb_brexazine
 
 Diamonds in Chemical Space: the Synthesis of Brexazine
 
+Diamonds-in-Chemical-Space directory structure::
+
+    GDB-Brexazine
+    ├── AUTHORS.rst
+    ├── CODE_OF_CONDUCT.rst
+    ├── CONTRIBUTING.rst
+    ├── dist
+    │   ├── gdb_brexazine-0.1.0-py3-none-any.whl
+    │   └── gdb_brexazine-0.1.0.tar.gz
+    ├── docs
+    │   ├── authors.rst
+    │   ├── conf.py
+    │   ├── contributing.rst
+    │   ├── history.rst
+    │   ├── index.rst
+    │   ├── installation.rst
+    │   ├── make.bat
+    │   ├── Makefile
+    │   ├── readme.rst
+    │   └── usage.rst
+    ├── HISTORY.rst
+    ├── index.html
+    ├── LICENSE
+    ├── Makefile
+    ├── MANIFEST.in
+    ├── pyproject.toml
+    ├── README.rst
+    ├── requirements_dev.txt
+    ├── ruff.toml
+    ├── src
+    │   ├── gdb_brexazine
+    │   │   ├── cli.py
+    │   │   ├── gdb_brexazine.py
+    │   │   └── __init__.py
+    │   └── gdb_brexazine.egg-info
+    │       ├── dependency_links.txt
+    │       ├── PKG-INFO
+    │       ├── requires.txt
+    │       ├── SOURCES.txt
+    │       └── top_level.txt
+    ├── tests
+    │   ├── __init__.py
+    │   └── test_gdb_brexazine.py
+    └── tox.ini
+
 
 * Free software: MIT license
 * Documentation: https://gdb-brexazine.readthedocs.io.
