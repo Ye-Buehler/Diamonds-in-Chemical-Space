@@ -125,7 +125,7 @@ class Utils:
         return number_of_ring
 
 
-    def count_quaternary_centers_carbon(self, smiles):
+    def count_quaternary_centers_carbon_openbabel(self, smiles):
         """
         Counts the number of quaternary carbons (carbon atoms bonded to four other carbons) in a molecule.
         
@@ -154,6 +154,53 @@ class Utils:
 
         return quaternary_count
     
+
+    def count_quaternary_centers_carbon_rdkit(self, smiles):
+        """
+        Counts the number of quaternary carbons (carbon/general atoms bonded to four other carbons) in a molecule.
+        
+        Returns:
+        - int: The number of quaternary carbons.
+        """
+        non_carbon_number = 0
+        carbon_number = 0
+        mol = Chem.MolFromSmiles(smiles)
+
+        for x in mol.GetAtoms():
+        
+            if x.GetHybridization() == Chem.HybridizationType.SP3:
+                i = x.GetIdx()
+                neighbor_list_atom = []
+
+                neighbor_list_RDKMol = mol.GetAtomWithIdx(i).GetNeighbors()
+
+                #print(x.GetSymbol())
+                #print(neighbor_list_RDKMol)
+
+                if x.GetSymbol() == 'C' and x.GetTotalNumHs() == 0:
+
+                    for n in neighbor_list_RDKMol:
+
+                        neighbor_atom = n.GetSymbol()
+                        neighbor_list_atom.append(neighbor_atom)
+                    
+                    #print(neighbor_list_atom)
+
+                    if all([x == 'C' for x in neighbor_list_atom]) == True:
+                        carbon_number += 1
+                        #print('carbon:', carbon_number)
+
+                    if all([x == 'C' for x in neighbor_list_atom]) == False:
+                        non_carbon_number += 1
+                        #print('general:',non_carbon_number)
+            
+            quaternary_count_carbon = carbon_number
+            quaternary_count_general = carbon_number + non_carbon_number
+
+        return quaternary_count_carbon, quaternary_count_general
+    
+
+
     # TODO: Calculate the FDV
     def divalent_nodes_fraction(self, smiles):
         mol=Chem.MolFromSmiles(smiles)
