@@ -416,5 +416,25 @@ class Utils:
 
         return size
 
-        
 
+    # TODO: Make a counting table
+    def count_table(self,length1, length2):
+        # Create a dictionary with column names as keys and values for one row
+        data = {
+            'Size1': [length1],
+            'Size2': [length2],
+
+        }
+        # Create a DataFrame from the dictionary
+        df_count = pd.DataFrame(data)
+        df_count
+
+        return df_count
+
+
+    # TODO: Count the number of acyclic bonds
+    def count_acyclic_bonds(self, smiles):
+        mol = Chem.MolFromSmiles(smiles)
+        # Count the number of acyclic bonds
+        num_acyclic_bonds = sum(1 for bond in mol.GetBonds() if not bond.IsInRing())
+        return num_acyclic_bonds
