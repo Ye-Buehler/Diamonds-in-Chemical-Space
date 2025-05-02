@@ -2,7 +2,9 @@
 Diamonds in Chemical Space: The Synthesis of Brexazine
 =============
 
-Thank you for your interest in this repo complementing the "[Diamonds in Chemical Space: The Synthesis of Brexazine](https://onlinelibrary.wiley.com/doi/full/10.1002/hlca.202400175)" publication.
+Thank you for your interest in this repository, which complements the publication 
+"`Diamonds in Chemical Space: The Synthesis of Brexazine <https://onlinelibrary.wiley.com/doi/full/10.1002/hlca.202400175>`_".
+
 
 .. image:: https://img.shields.io/pypi/v/gdb_brexazine.svg
         :target: https://pypi.python.org/pypi/gdb_brexazine
