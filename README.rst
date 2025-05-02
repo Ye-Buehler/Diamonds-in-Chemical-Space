@@ -6,9 +6,9 @@ Thank you for your interest in this repository, which complements the publicatio
 "`Diamonds in Chemical Space: The Synthesis of Brexazine <https://onlinelibrary.wiley.com/doi/full/10.1002/hlca.202400175>`_".
 
 .. image:: https://github.com/Ye-Buehler/Diamonds-in-Chemical-Space/blob/main/docs/hlca202400175-fig-0002-m.jpg
-   :alt: Brexazine Illustration
+   :alt: Brexazine paper
    :align: center
-   :width: 600px
+   :width: 500px
 
 .. image:: https://img.shields.io/pypi/v/gdb_brexazine.svg
         :target: https://pypi.python.org/pypi/gdb_brexazine
